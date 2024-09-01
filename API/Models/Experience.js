@@ -1,15 +1,16 @@
 const mongoose = require('mongoose');
 
 const ExperienceSchema = mongoose.Schema({
-    userID:{type: mongoose.Schema.Types.ObjectId, ref:'users', required: true},
-    company: {type:"String", require:"true"},
-    place: {type:"String", require:"true"},
-    designation: {type:"String", require:"true"},
-    monthOfJoining: {type:"String", require:"true"},
-    yearOfJoining: {type:"String", require:"true"},
+    userID:{type: mongoose.Schema.Types.ObjectId, ref:'users', requiredd: true},
+    company: {type:"String", required:"true"},
+    place: {type:"String", required:"true"},
+    designation: {type:"String", required:"true"},
+    monthOfJoining: {type:"String", required:"true"},
+    yearOfJoining: {type:"String", required:"true"},
     monthOfLeaving: {type:"String"},
     yearOfLeaving: {type:"String"},
-    jobDescription: {type:"String"}
+    jobDescription: {type:"String"},
+    createdAt: { type: Date, default : new Date()}
 });
 
 const Experience = mongoose.model('Experience',ExperienceSchema);
