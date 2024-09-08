@@ -12,7 +12,7 @@ const ProjectSchema = mongoose.Schema({
     monthOfLeaving: {type:"String"},
     yearOfLeaving: {type:"String"},
     projectImage: {type:"String"},
-    createdAt: { type: Date, default : new Date()}
+    createdAt: {type: Date, default : new Date()}
 });
 
 const Project = mongoose.model('Project',ProjectSchema);
