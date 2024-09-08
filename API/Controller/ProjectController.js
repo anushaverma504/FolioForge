@@ -4,6 +4,8 @@ const Project = require('../Models/Project');
 const projectDetails = async (req, res) => {
     try {
         const obj = req.body;
+        console.log("obj: ", obj);
+        
         const data = new Project(obj);
         await data.save();
 

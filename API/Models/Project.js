@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const ProjectSchema = mongoose.Schema({
     userID:{type: mongoose.Schema.Types.ObjectId, ref:'users', requiredd: true},
     name: {type:"String", required:"true"},
@@ -10,6 +11,7 @@ const ProjectSchema = mongoose.Schema({
     yearOfJoining: {type:"String", required:"true"},
     monthOfLeaving: {type:"String"},
     yearOfLeaving: {type:"String"},
+    projectImage: {type:"String"},
     createdAt: { type: Date, default : new Date()}
 });
 
