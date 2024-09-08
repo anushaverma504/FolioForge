@@ -1,5 +1,5 @@
 /* Dashboard Layout */
-.dashboard-container {
+.UserDashboard .dashboard-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,13 +10,13 @@
   }
   
   /* Tab Navigation */
-  .tabs {
+  .UserDashboard .tabs {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
   }
   
-  .tabs button {
+  .UserDashboard .tabs button {
     padding: 10px 20px;
     border: 2px solid transparent;
     background-color: #007bff;
@@ -28,17 +28,17 @@
     transition: background-color 0.3s ease, border-color 0.3s ease;
   }
   
-  .tabs button:hover {
+  .UserDashboard .tabs button:hover {
     background-color: #0056b3;
   }
   
-  .tabs .active-tab {
+  .UserDashboard .tabs .active-tab {
     background-color: white;
     color: #007bff;
     border-color: #007bff;
   }
   
-  .tab-content {
+  .UserDashboard .tab-content {
     width: 100%;
     max-width: 800px;
     background-color: white;
@@ -49,24 +49,24 @@
   }
   
   /* Form Styles */
-  form {
+  .UserDashboard form {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 20px;
   }
   
-  form div {
+  .UserDashboard form div {
     display: flex;
     flex-direction: column;
   }
   
-  label {
+  .UserDashboard label {
     margin-bottom: 5px;
     font-weight: bold;
     color: #333;
   }
   
-  input, select {
+  .UserDashboard input, select {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -74,12 +74,12 @@
     transition: border-color 0.3s ease;
   }
   
-  input:focus, select:focus {
+  .UserDashboard input:focus, select:focus {
     border-color: #007bff;
     outline: none;
   }
   
-  button[type="submit"] {
+  .UserDashboard button[type="submit"] {
     padding: 10px 25px;
     background-color: #007bff;
     color: white;
@@ -91,13 +91,13 @@
     transition: background-color 0.3s ease;
   }
   
-  button[type="submit"]:hover {
+  .UserDashboard button[type="submit"]:hover {
     background-color: #0056b3;
   }
   
   /* Media Queries */
   @media (min-width: 768px) {
-    form {
+    .UserDashboard form {
       grid-template-columns: 1fr 1fr;
       grid-gap: 20px;
     }

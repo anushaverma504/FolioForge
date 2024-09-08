@@ -21,7 +21,7 @@ const UserDashboard = () => {
   };
 
   return (
-    <>
+    <React.Fragment className='UserDashboard'>
       <div className="dashboard-container">
         <div className="tabs">
           <button 
@@ -42,12 +42,24 @@ const UserDashboard = () => {
           >
             Work Experience
           </button>
+          <button 
+            className={activeTab === 'Projects' ? 'active-tab' : ''}
+            onClick={() => setActiveTab('Projects')}
+          >
+            Projects
+          </button>
+          <button 
+            className={activeTab === 'Skill and Certifications' ? 'active-tab' : ''}
+            onClick={() => setActiveTab('Skill and Certifications')}
+          >
+            Skill and Certifications
+          </button>
         </div>
         <div className="tab-content">
           {renderTabContent()}
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 
