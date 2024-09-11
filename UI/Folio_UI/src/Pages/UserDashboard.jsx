@@ -21,7 +21,7 @@ const UserDashboard = () => {
   };
 
   return (
-    <React.Fragment className='UserDashboard'>
+    <div className='UserDashboard'>
       <div className="dashboard-container">
         <div className="tabs">
           <button 
@@ -59,7 +59,7 @@ const UserDashboard = () => {
           {renderTabContent()}
         </div>
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 
