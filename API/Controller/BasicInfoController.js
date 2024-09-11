@@ -3,6 +3,7 @@ const BasicInfo = require('../Models/BasicInfo');
 
 const basicDetails = async (req, res) => {
     try {
+        console.log(req.body);
         const obj = req.body;
         const data = new BasicInfo(obj);
         await data.save();

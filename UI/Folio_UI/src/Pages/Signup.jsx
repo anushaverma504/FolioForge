@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import'../Styles/Auth.css';
 import axios from 'axios';
 
@@ -8,10 +9,11 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("level 1");
+        // console.log("level 1");
         
 
         if (!username || !email || !password || !confirmPassword) {
@@ -39,9 +41,9 @@ const Signup = () => {
             await axios.post(URL,body).then((result) => {
                 if (result.status == 200) {
                     console.log(result.data.data)
-                    // sessionStorage.setItem("authUser",JSON.stringify(result.data.data))
-                    // sessionStorage.setItem("token",JSON.stringify(result.data.token))
-                    // navigate('/')
+                    sessionStorage.setItem("authUser",JSON.stringify(result.data.data))
+                    sessionStorage.setItem("token",JSON.stringify(result.data.token))
+                    navigate('/user')
                 }
                 else 
                     alert("Invalid Credentials");

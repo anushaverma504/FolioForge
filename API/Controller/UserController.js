@@ -29,11 +29,14 @@ const Login = async (req,res) => {
     try {
         const {email,password} = req.body;
         const data = await User.findOne({email});
+        console.log("data -> ",data);
+        
         if (!data) {
             res.status(400).send({status: "Error", message: "User not exist"}); 
         } else {
         const match = await bcrypt.compare(password, data.password);
-
+            console.log("match -> ",match);
+            
         if(match) {
             const token = jwt.sign({data}, 'secret key');         
                 res.status(200).send({status:"User Loggedin successfully", data, token});          

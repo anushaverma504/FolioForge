@@ -1,5 +1,7 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
+const user = JSON.parse(sessionStorage.getItem("authUser"));
 const BasicDetailsForm = () => {
   const [formData, setFormData] = useState({
     firstname: '',
@@ -19,9 +21,40 @@ const BasicDetailsForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    // Perform form submission or validation logic here
+
+    if (!formData.firstname || !formData.contactno || !formData.place) {
+      setError('Enter the required fields');
+      return;
+    }
+
+    const URL = `http://localhost:4000/basicInfo/basicDetails`;
+    const body = {
+      "userID": user._id,
+      "firstname": formData.firstname,
+      "middlename": formData.middlename,
+      "lastname": formData.lastname,
+      "contactno": formData.contactno,
+      "place": formData.place,
+      "linkedin": formData.linkedin,
+      "github": formData.github,
+      "portfolio": formData.portfolio,
+      "resume": formData.resume,
+      "about": formData.about,
+    }
+
+    await axios.post(URL,body).then((result) => {
+      if(result.status == 200) {
+        console.log(" -------> ",formData);
+        
+      }
+    }).catch((error) => {
+      console.log("Error: ",error);
+      alert("Invalid data");
+    }
+
+    )
     console.log(formData);
   };
 

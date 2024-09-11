@@ -1,11 +1,15 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../Styles/Auth.css';
+
 
 const Login = () => {
     const [email,setEmail] = useState(''); 
     const [password,setPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
+
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -14,7 +18,7 @@ const Login = () => {
             setError('All fields are required');
         } else {
             setError('');
-            console.log('Logged in with:', email, password);
+            // console.log('Logged in with:', email, password);
 
             const URL = `http://localhost:4000/user/login`;
             const body = {
@@ -24,9 +28,9 @@ const Login = () => {
             await axios.post(URL,body).then((result) => {
                 if (result.status == 200) {
                     console.log(result.data)
-                    // sessionStorage.setItem("authUser",JSON.stringify(result.data.data))
-                    // sessionStorage.setItem("token",JSON.stringify(result.data.token))
-                    // navigate(-1)
+                    sessionStorage.setItem("authUser",JSON.stringify(result.data.data))
+                    sessionStorage.setItem("token",JSON.stringify(result.data.token))
+                    navigate('/user')
                 }
                 else 
                     alert("Invalid Credentials");

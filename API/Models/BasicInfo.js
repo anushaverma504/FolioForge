@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const BasicInfoSchema = new mongoose.Schema({
     userID: { type: mongoose.Schema.Types.ObjectId, ref: 'users', required: true },
     firstname: { type: String, required: true },
-    middlename: { type: String }, // Not required
-    lastname: { type: String },   // Not required
+    middlename: { type: String },
+    lastname: { type: String },
     contactno: { type: String, required: true },
     place: { type: String, required: true },
     linkedin: { type: String },

@@ -20,6 +20,12 @@ var corsOptions = {
 }
 app.use(cors(corsOptions))
 app.use(express.json());
+
+app.use((req, res, next) => {
+  console.log(req.url);
+  next();
+});
+
 app.use('/user',userRoute);
 app.use('/basicInfo',basicInfoRoute);
 app.use('/certification',certificationRoute);
