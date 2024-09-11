@@ -7,10 +7,8 @@ const ProjectSchema = mongoose.Schema({
     technology: {type:"String", required:"true"},
     description: {type:"String", required:"true"},
     deployedLink: {type:"String"},
-    monthOfJoining: {type:"String", required:"true"},
-    yearOfJoining: {type:"String", required:"true"},
-    monthOfLeaving: {type:"String"},
-    yearOfLeaving: {type:"String"},
+    dateOfStarting: {type:Date},
+    dateOfEnding: {type:Date},
     projectImage: {type:"String"},
     createdAt: {type: Date, default : new Date()}
 });

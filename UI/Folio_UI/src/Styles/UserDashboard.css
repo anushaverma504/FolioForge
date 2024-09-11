@@ -103,6 +103,8 @@
     }
   }
   
+/* ///////////////////   education ///////////////////////// */
+
   .education-details-container {
     width: 100%;
     max-width: 800px;
@@ -183,3 +185,121 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
+
+  /* ///////////////////   work ///////////////////////// */
+
+  /* Work Experience Form Container */
+.work-experience-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Title */
+.work-experience-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+/* Form Structure */
+.work-experience-form {
+  background-color: #ffffff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+/* Form Group Structure */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Add and Delete Button Styles */
+button.add-experience-btn,
+button.delete-experience-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+/* Add Button Style */
+button.add-experience-btn {
+  background-color: #28a745;
+  color: white;
+  margin-top: 10px;
+}
+
+button.add-experience-btn:hover {
+  background-color: #218838;
+}
+
+/* Delete Button Style */
+button.delete-experience-btn {
+  background-color: #dc3545;
+  color: white;
+  margin-top: 10px;
+}
+
+button.delete-experience-btn:hover {
+  background-color: #c82333;
+}
+
+/* Submit Button Style */
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Flexbox for Button Group */
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

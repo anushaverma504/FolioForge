@@ -3,6 +3,8 @@ import BasicDetailsForm from '../Components/BasicDetailsForm';
 import EducationDetailsForm from '../Components/EducationDetailsForm';
 import WorkExperienceForm from '../Components/WorkExperienceForm';
 import '../Styles/UserDashboard.css'; // Importing the CSS
+import ProjectsForm from '../Components/ProjectsForm';
+import SkillsCertificationForm from '../Components/SkillsCertificationForm';
 
 const UserDashboard = () => {
   const [activeTab, setActiveTab] = useState('basic');
@@ -15,6 +17,10 @@ const UserDashboard = () => {
         return <EducationDetailsForm />;
       case 'work':
         return <WorkExperienceForm />;
+      case 'Projects':
+        return <ProjectsForm />;
+      case 'Skill and Certifications':
+        return <SkillsCertificationForm />;
       default:
         return null;
     }
