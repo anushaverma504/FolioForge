@@ -9,23 +9,30 @@ import Signup from './Pages/Signup'
 import Login from './Pages/Login'
 import UserDashboard from './Pages/UserDashboard'
 import NotFoundPage from './Pages/NotFoundPage'
+import ResumeTemplate from './Pages/ResumeTemplate'
+import PortfolioTemplate from './Pages/PortfolioTemplate'
+import LandingPage from './Pages/LandingPage'
 
 function App() {
 
   return (
     <>
       <div>
-      <Navbar />
+      
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} >
+          <Route index element={<LandingPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/user" element={<UserDashboard />} />
+          <Route path="/resume-templates" element={<ResumeTemplate />} />
+          <Route path="/portfolio-templates" element={<PortfolioTemplate />} />
           <Route path="*" element={<NotFoundPage />} />
+          </Route>
         </Routes>
-        <Footer />
+        
       </div>
     </>
   )
