@@ -27,9 +27,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/user" element={<UserDashboard />} />
-          <Route path="/resume-templates" element={<ResumeTemplate />} />
-          <Route path="/portfolio-templates" element={<PortfolioTemplate />} />
+          <Route path="/resume-templates" element={<PrivateRoute><ResumeTemplate /></PrivateRoute>} />
+          <Route path="/portfolio-templates" element={<PrivateRoute><PortfolioTemplate /></PrivateRoute>} />
           <Route path="/user" element={<PrivateRoute> <UserDashboard /> </PrivateRoute>} />
           <Route path="*" element={<NotFoundPage />} />
           </Route>
