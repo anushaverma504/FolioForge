@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { FaPlus, FaTrash } from 'react-icons/fa';
 
@@ -15,38 +14,37 @@ const ProjectsForm = ({switchTab}) => {
   };
 
   const handleFileChange = (e, index) => {
-    const file = e.target.files[0];
-    setProjectFiles({ ...projectFiles, [index]: file });
+    const files = e.target.files[0];
+    setProjectFiles({ ...projectFiles, [index]: files });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const formData = new FormData();
-    
+
     projects.forEach((_, index) => {
-      formData.append(`name[${index}]`, e.target[`name-${index}`].value);
-      formData.append(`technology[${index}]`, e.target[`technology-${index}`].value);
-      formData.append(`description[${index}]`, e.target[`description-${index}`].value);
-      formData.append(`deployedLink[${index}]`, e.target[`deployedLink-${index}`].value);
-      formData.append(`dateOfStarting[${index}]`, e.target[`dateOfStarting-${index}`].value);
-      formData.append(`dateOfEnding[${index}]`, e.target[`dateOfEnding-${index}`].value);
+      formData.append(`name-${index}`, e.target[`name-${index}`].value);
+      formData.append(`technology-${index}`, e.target[`technology-${index}`].value);
+      formData.append(`description-${index}`, e.target[`description-${index}`].value);
+      formData.append(`deployedLink-${index}`, e.target[`deployedLink-${index}`].value);
+      formData.append(`dateOfStarting-${index}`, e.target[`dateOfStarting-${index}`].value);
+      formData.append(`dateOfEnding-${index}`, e.target[`dateOfEnding-${index}`].value);
 
       if (projectFiles[index]) {
-        formData.append(`img[${index}]`, projectFiles[index]);
+        formData.append(`img-${index}`, projectFiles[index]);
       }
     });
 
+    // Example of sending data using fetch
     try {
-      const response = await axios.post("http://localhost:4000/project/projectDetails", formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+      const response = await fetch('http://localhost:4000/project/projectDetails', {
+        method: 'POST',
+        body: formData,
       });
 
-      if (response.status === 200) {
+      if (response.ok) {
         alert('Projects submitted successfully!');
-        switchTab('Skill and Certifications')
+        switchTab('')
       } else {
         alert('Failed to submit projects.');
       }
