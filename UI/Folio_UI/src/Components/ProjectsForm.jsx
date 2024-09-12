@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaPlus, FaTrash } from 'react-icons/fa';
 
-const ProjectsForm = () => {
+const ProjectsForm = ({switchTab}) => {
   const [projects, setProjects] = useState([{ id: 1 }]);
   const [projectFiles, setProjectFiles] = useState({});
 
@@ -44,6 +44,7 @@ const ProjectsForm = () => {
 
       if (response.ok) {
         alert('Projects submitted successfully!');
+        switchTab('Skill and Certifications')
       } else {
         alert('Failed to submit projects.');
       }

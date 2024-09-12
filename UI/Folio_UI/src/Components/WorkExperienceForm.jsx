@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const user = JSON.parse(sessionStorage.getItem("authUser"));
 
-const WorkExperienceForm = () => {
+const WorkExperienceForm = ({switchTab}) => {
   const [workExperience, setWorkExperience] = useState([
     { id: 1, company: '', place: '', designation: '', monthOfJoining: '', yearOfJoining: '', monthOfLeaving: '', yearOfLeaving: '', jobDescription: '' }
   ]);
@@ -49,6 +49,7 @@ const WorkExperienceForm = () => {
       await axios.post(URL, body).then((result) => {
         if (result.status === 200) {
           console.log('Data submitted successfully', result.data);
+          switchTab('Projects')
         }
       }).catch((error) => {
         console.error('Error:', error);

@@ -9,18 +9,22 @@ import SkillsCertificationForm from '../Components/SkillsCertificationForm';
 const UserDashboard = () => {
   const [activeTab, setActiveTab] = useState('basic');
 
+  const switchTab = (tab) => {
+    setActiveTab(tab);
+  }
+
   const renderTabContent = () => {
     switch (activeTab) {
       case 'basic':
-        return <BasicDetailsForm />;
+        return <BasicDetailsForm switchTab={switchTab}/>;
       case 'education':
-        return <EducationDetailsForm />;
+        return <EducationDetailsForm switchTab={switchTab}/>;
       case 'work':
-        return <WorkExperienceForm />;
+        return <WorkExperienceForm switchTab={switchTab}/>;
       case 'Projects':
-        return <ProjectsForm />;
+        return <ProjectsForm switchTab={switchTab}/>;
       case 'Skill and Certifications':
-        return <SkillsCertificationForm />;
+        return <SkillsCertificationForm/>;
       default:
         return null;
     }
