@@ -31,13 +31,13 @@ const ProjectsForm = () => {
       formData.append(`dateOfEnding-${index}`, e.target[`dateOfEnding-${index}`].value);
 
       if (projectFiles[index]) {
-        formData.append(`projectImage-${index}`, projectFiles[index]);
+        formData.append(`img-${index}`, projectFiles[index]);
       }
     });
 
     // Example of sending data using fetch
     try {
-      const response = await fetch('/your-endpoint', {
+      const response = await fetch('http://localhost:4000/project/projectDetails', {
         method: 'POST',
         body: formData,
       });

@@ -2,6 +2,7 @@ const multer  = require('multer')
 const upload = multer({ dest: './Uploads' })
 
 const imgUpload = (req, res, next) => {
+    console.log("Multer -> ", req.body);
     upload.single('img')(req, res, function (error) {
         if (error) {
             console.error("Unable to upload project image", error);

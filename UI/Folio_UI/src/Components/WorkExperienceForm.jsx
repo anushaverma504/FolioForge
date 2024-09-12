@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaPlus, FaTrash } from 'react-icons/fa'; // Icons for Add and Delete
+import { FaPlus, FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 
 const user = JSON.parse(sessionStorage.getItem("authUser"));

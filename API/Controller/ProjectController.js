@@ -4,7 +4,7 @@ const Project = require('../Models/Project');
 const projectDetails = async (req, res) => {
     try {
         let obj = req.body;
-
+        console.log(obj);
         obj = {...obj, projectImage: req.file.path}
         
         const data = new Project(obj);
