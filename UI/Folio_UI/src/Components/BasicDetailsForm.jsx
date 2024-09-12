@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 
 const user = JSON.parse(sessionStorage.getItem("authUser"));
-const BasicDetailsForm = () => {
+const BasicDetailsForm = ({switchTab}) => {
   const [formData, setFormData] = useState({
     firstname: '',
     middlename: '',
@@ -47,7 +47,7 @@ const BasicDetailsForm = () => {
     await axios.post(URL,body).then((result) => {
       if(result.status == 200) {
         console.log(" -------> ",formData);
-        
+        switchTab('education');
       }
     }).catch((error) => {
       console.log("Error: ",error);

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const user = JSON.parse(sessionStorage.getItem("authUser"));
 
-const EducationDetailsForm = () => {
+const EducationDetailsForm = ({switchTab}) => {
   const [educationDetails, setEducationDetails] = useState([{ id: 1, university: '', course: '', city: '', monthOfJoining: '', yearOfJoining: '', monthOfLeaving: '', yearOfLeaving: '', marks: '', marksType: '%' }]);
 
   const addEducationDetail = () => {
@@ -45,6 +45,7 @@ const EducationDetailsForm = () => {
       await axios.post(URL, body).then((result) => {
         if (result.status === 200) {
           console.log('Data submitted successfully', result.data);
+          switchTab('work')
         }
       }).catch((error) => {
         console.error('Error:', error);

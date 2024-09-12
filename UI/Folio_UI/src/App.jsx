@@ -12,6 +12,7 @@ import NotFoundPage from './Pages/NotFoundPage'
 import ResumeTemplate from './Pages/ResumeTemplate'
 import PortfolioTemplate from './Pages/PortfolioTemplate'
 import LandingPage from './Pages/LandingPage'
+import PrivateRoute from './Components/PrivateRoute'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/user" element={<UserDashboard />} />
           <Route path="/resume-templates" element={<ResumeTemplate />} />
           <Route path="/portfolio-templates" element={<PortfolioTemplate />} />
+          <Route path="/user" element={<PrivateRoute> <UserDashboard /> </PrivateRoute>} />
           <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>

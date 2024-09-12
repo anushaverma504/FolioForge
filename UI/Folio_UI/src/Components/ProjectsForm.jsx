@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { FaPlus, FaTrash } from 'react-icons/fa';
 
-const ProjectsForm = () => {
+const ProjectsForm = ({switchTab}) => {
   const [projects, setProjects] = useState([{ id: 1 }]);
   const [projectFiles, setProjectFiles] = useState({});
 
@@ -46,6 +46,7 @@ const ProjectsForm = () => {
 
       if (response.status === 200) {
         alert('Projects submitted successfully!');
+        switchTab('Skill and Certifications')
       } else {
         alert('Failed to submit projects.');
       }
