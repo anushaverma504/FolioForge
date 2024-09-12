@@ -9,6 +9,7 @@ import Signup from './Pages/Signup'
 import Login from './Pages/Login'
 import UserDashboard from './Pages/UserDashboard'
 import NotFoundPage from './Pages/NotFoundPage'
+import PrivateRoute from './Components/PrivateRoute'
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/user" element={<UserDashboard />} />
+          <Route path="/user" element={<PrivateRoute> <UserDashboard /> </PrivateRoute>} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />

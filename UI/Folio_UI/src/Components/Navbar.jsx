@@ -1,7 +1,17 @@
 import React from 'react';
 import { FaSignInAlt, FaUserPlus } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const token=sessionStorage.getItem("token")||""
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    sessionStorage.clear();
+    navigate('/');
+  }
+
   return (
     <nav className="navbar">
   <a href="/" className="navbar-brand">
@@ -26,12 +36,22 @@ const Navbar = () => {
     <li className="nav-item">
       <a href="/contact" className="nav-link">Contact</a>
     </li>
+
+    {token ? (
     <li className="nav-item">
-      <a href="/login" className="nav-link">Login</a>
+      <a href="/logout" className="nav-link" onClick={handleLogout}>Logout</a>
     </li>
-    <li className="nav-item">
-      <a href="/signup" className="nav-link">Sign Up</a>
-    </li>
+    ) : (
+      <>
+        <li className="nav-item">
+          <a href="/login" className="nav-link">Login</a>
+        </li>
+        <li className="nav-item">
+          <a href="/signup" className="nav-link">Sign Up</a>
+        </li>
+      </>
+    )}
+    
   </ul>
 </nav>
 
