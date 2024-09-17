@@ -12,6 +12,7 @@ const BasicInfoSchema = new mongoose.Schema({
     portfolio: { type: String },
     resume: { type: String },
     about: { type: String },
+    profileImage: {type: String},
     createdAt: { type: Date, default : new Date()}
 });
 

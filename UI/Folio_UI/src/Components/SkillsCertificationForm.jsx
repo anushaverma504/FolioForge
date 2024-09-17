@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReactStars from 'react-stars';
 
+const user = JSON.parse(sessionStorage.getItem("authUser"));
 const skillOptions = [
   { value: 'JavaScript', label: 'JavaScript' },
   { value: 'React', label: 'React' },
@@ -55,8 +56,27 @@ function SkillsCertificationForm() {
     setCertifications(updatedCertifications);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
+    const URL = `http://localhost:4000/basicInfo/basicDetails`;
+    const body = {
+      "userID": user._id,
+      "title": title,
+      "affilatedCompany": affiliatedCompany,
+      "description": formData.lastname
+    }
+
+    await axios.post(URL,body).then((result) => {
+      if(result.status == 200) {
+        console.log(" -------> ",formData);
+        switchTab('education');
+      }
+    }).catch((error) => {
+      console.log("Error: ",error);
+      alert("Invalid data");
+    }
+
+    )
     console.log('Skills:', skills);
     console.log('Certifications:', certifications);
     navigate('/portfolio-templates');

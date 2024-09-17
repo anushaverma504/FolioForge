@@ -3,8 +3,9 @@ const BasicInfo = require('../Models/BasicInfo');
 
 const basicDetails = async (req, res) => {
     try {
-        console.log(req.body);
-        const obj = req.body;
+        let obj = req.body;
+        console.log(obj);
+        obj = {...obj, profileImage: req.file.path}        
         const data = new BasicInfo(obj);
         await data.save();
 

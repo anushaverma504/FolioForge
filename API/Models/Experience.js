@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const ExperienceSchema = mongoose.Schema({
-    userID:{type: mongoose.Schema.Types.ObjectId, ref:'users', requiredd: true},
+    userID:{type: mongoose.Schema.Types.ObjectId, ref:'users', required: true},
     company: {type:"String", required:"true"},
     place: {type:"String", required:"true"},
     designation: {type:"String", required:"true"},

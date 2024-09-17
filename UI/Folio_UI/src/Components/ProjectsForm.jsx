@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { FaPlus, FaTrash } from 'react-icons/fa';
+import axios from 'axios'; 
 
+const user = JSON.parse(sessionStorage.getItem("authUser"));
 const ProjectsForm = ({switchTab}) => {
   const [projects, setProjects] = useState([{ id: 1 }]);
   const [projectFiles, setProjectFiles] = useState({});
@@ -25,6 +27,7 @@ const ProjectsForm = ({switchTab}) => {
       const formData = new FormData();
 
       // Append data to FormData
+      formData.append('userID',user._id);
       formData.append('name', e.target[`name-${index}`].value);
       formData.append('technology', e.target[`technology-${index}`].value);
       formData.append('description', e.target[`description-${index}`].value);
